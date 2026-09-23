@@ -386,3 +386,49 @@ export const PLANNING_ZONES: PlanningZone[] = [
     mapCoords: { x: 82, y: 60, radius: 17 }
   }
 ];
+
+export const DEFAULT_USER_PROFILE = {
+  name: 'Darshan',
+  email: 'darshan.f@evatlas.io',
+  phone: '+91 98220 12345',
+  vehicle: VEHICLE_PRESETS[0],
+  batteryPercentage: 74,
+  estimatedRangeKm: 230,
+  currentLocationName: 'Pradhikaran, Akurdi, Pune',
+  savedStationIds: ['st-01', 'st-03'],
+  notificationsEnabled: true,
+  preferredPlug: 'CCS2'
+};
+
+export const MOCK_TRIP_HISTORY = [
+  {
+    id: 'trip-01',
+    from: 'Akurdi, PCMC',
+    to: 'Hinjawadi Phase 1 IT Park',
+    date: 'Yesterday, 5:45 PM',
+    distanceKm: 16.4,
+    batteryUsedPct: 12,
+    chargingStopName: null,
+    costSavedInr: 145
+  },
+  {
+    id: 'trip-02',
+    from: 'Akurdi, Pune',
+    to: 'Lonavala Tiger Point',
+    date: '20 Sep 2026',
+    distanceKm: 68.2,
+    batteryUsedPct: 44,
+    chargingStopName: 'Urse Expressway Supercharge Plaza',
+    costSavedInr: 520
+  },
+  {
+    id: 'trip-03',
+    from: 'Shivajinagar, Central Pune',
+    to: 'Viman Nagar Airport',
+    date: '16 Sep 2026',
+    distanceKm: 18.5,
+    batteryUsedPct: 15,
+    chargingStopName: null,
+    costSavedInr: 180
+  }
+];

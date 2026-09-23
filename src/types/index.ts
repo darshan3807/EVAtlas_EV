@@ -3,9 +3,22 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-export type NavigationTab = 'stations' | 'route' | 'emergency' | 'planner' | 'architecture';
+export type UserRole = 'driver' | 'admin';
 
-export type UserRole = 'driver' | 'planner';
+export type DriverTab =
+  | 'home'
+  | 'dashboard'
+  | 'stations'
+  | 'route'
+  | 'insights'
+  | 'emergency'
+  | 'profile';
+
+export type AdminTab =
+  | 'overview'
+  | 'infrastructure'
+  | 'heatmap'
+  | 'solar-grid';
 
 export interface Connector {
   id: string;
@@ -44,6 +57,8 @@ export interface ChargingStation {
   amenities: string[];
   hourlyOccupancy: number[]; // 24 hours (0-100%)
   description: string;
+  rating?: number;
+  operatingHours?: string;
 }
 
 export interface EVVehicle {
@@ -96,4 +111,24 @@ export interface PlanningZone {
   solarPotentialKwp: number;
   trafficVolumeDaily: number;
   mapCoords: { x: number; y: number; radius: number };
+}
+
+export interface UserProfile {
+  name: string;
+  email: string;
+  phone: string;
+  vehicle: EVVehicle;
+  batteryPercentage: number;
+  estimatedRangeKm: number;
+  currentLocationName: string;
+  savedStationIds: string[];
+  notificationsEnabled: boolean;
+  preferredPlug: string;
+}
+
+export interface NavigationStep {
+  instruction: string;
+  distance: string;
+  duration: string;
+  turnIcon: 'straight' | 'left' | 'right' | 'roundabout' | 'arrive';
 }
