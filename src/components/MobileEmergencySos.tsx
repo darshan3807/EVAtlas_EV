@@ -99,53 +99,53 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
   const stepDescriptions = [
     {
       num: 1,
-      title: 'Low Battery Detected',
-      desc: 'IoT telematics alerts critically low battery state of charge (2% SoC, ~5 km range left).',
+      title: 'Low Battery Alert',
+      desc: 'Your car’s battery is critically low (2% remaining, ~5 km driving range left).',
     },
     {
       num: 2,
-      title: 'Check Nearby Fixed Stations',
-      desc: 'System queries GIS network. Nearest fixed DC fast charger is 14.5 km away — unreachable!',
+      title: 'Check Nearby Stations',
+      desc: 'EVAtlas checks all nearby chargers. The closest station is 14.5 km away — too far to reach safely.',
     },
     {
       num: 3,
-      title: 'AI Matches Mobile Van',
-      desc: 'Backend algorithms scan local emergency fleet for available roadside mobile battery vans.',
+      title: 'Find Mobile Chargers',
+      desc: 'EVAtlas automatically searches for nearby mobile battery vans ready to come to your assistance.',
     },
     {
       num: 4,
-      title: 'Dispatch Request Initiated',
-      desc: 'Driver confirms SOS rescue request with precise GPS location & CCS2 connector specs.',
+      title: 'Request Roadside Help',
+      desc: 'Confirm your vehicle and location with one tap to dispatch the nearest mobile charging van.',
     },
     {
       num: 5,
-      title: 'Provider Accepts & Navigates',
-      desc: 'Mobile Charger 01 accepts dispatch and initiates high-priority travel (ETA: 12 mins).',
+      title: 'Help is on the Way',
+      desc: 'Mobile Charger 01 has accepted your request and is heading directly to you (estimated arrival in 12 mins).',
     },
     {
       num: 6,
-      title: 'Real-Time Telemetry Tracking',
-      desc: 'Live GPS beacon shows mobile van closing distance (2.1 km away, ETA: 6 mins).',
+      title: 'Live Van Tracking',
+      desc: 'Watch the mobile charging van close the distance in real time on your map (2.1 km away, 6 mins left).',
     },
     {
       num: 7,
-      title: 'Provider Arrives & Connects',
-      desc: 'Technician hooks up mobile 40kW DC fast charger to supply emergency recovery buffer.',
+      title: 'Van Arrives & Connects',
+      desc: 'The technician arrives, plugs a rapid DC charging cable into your car, and begins delivering power.',
     },
     {
       num: 8,
-      title: 'Safe Buffer Restored',
-      desc: 'Battery is safely boosted to 16% SoC (~32 km range) in 12 minutes.',
+      title: 'Safe Battery Level Restored',
+      desc: 'Your battery is safely boosted to 16% (~32 km of driving range) in just 12 minutes.',
     },
     {
       num: 9,
-      title: 'Route to Nearest Fixed Hub',
-      desc: 'System automatically plots turn-by-turn guidance to Urse Expressway Plaza (6.5 km away).',
+      title: 'Directions to Next Station',
+      desc: 'EVAtlas plots turn-by-turn directions to the nearest full-speed charging plaza at Urse (6.5 km away).',
     },
     {
       num: 10,
-      title: 'Assistance Completed',
-      desc: 'Rescue complete! Driver safely resumes trip toward fixed fast charging infrastructure.',
+      title: 'Back on the Road!',
+      desc: 'Rescue complete! You have ample charge to drive to the charging hub and continue your trip.',
     },
   ];
 
@@ -157,15 +157,15 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
           <div>
             <div className="flex items-center gap-2 text-xs font-semibold text-rose-700 mb-1">
               <span className="w-2 h-2 rounded-full bg-rose-600 animate-pulse" />
-              <span>EVAtlas Autonomous Dispatch Protocol</span>
+              <span>Emergency Roadside Assistance</span>
               <span className="text-slate-300">·</span>
-              <span>10-Step Roadside EV Battery Assistance</span>
+              <span>On-Demand Battery Boost</span>
             </div>
             <h2 className="text-base font-bold text-slate-900 leading-snug">
-              Mobile EV Emergency Charging Assistance Protocol
+              Mobile EV Roadside Battery Rescue
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              When an EV cannot safely reach a charging station, EVAtlas connects the stranded vehicle with the nearest mobile high-rate battery van.
+              If your electric car runs out of charge on the road, EVAtlas dispatches a mobile charging van directly to you.
             </p>
           </div>
 
@@ -249,9 +249,11 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
           <div className="flex items-center justify-between">
             <h3 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
               <AlertTriangle className="w-4 h-4 text-rose-600" />
-              <span>Stranded EV Telematics</span>
+              <span>Your Vehicle Status</span>
             </h3>
-            <span className="text-[10px] font-mono text-slate-400">IoT CAN-Bus Active</span>
+            <span className="text-[10px] font-medium text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+              Live Connected
+            </span>
           </div>
 
           {/* Battery Status Gauge */}
@@ -263,7 +265,7 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
             }`}
           >
             <div className="flex items-center justify-between text-xs">
-              <span className="font-semibold text-slate-800">State of Charge (SoC)</span>
+              <span className="font-semibold text-slate-800">Battery Level</span>
               <span
                 className={`font-mono font-bold text-base ${
                   batteryLevel <= 5 ? 'text-rose-700' : 'text-emerald-700'
@@ -283,7 +285,7 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
             </div>
 
             <div className="flex justify-between text-[11px] text-slate-600 pt-1">
-              <span>Estimated Range:</span>
+              <span>Estimated Driving Range:</span>
               <span className="font-mono font-bold">{remainingRangeKm.toFixed(1)} km</span>
             </div>
           </div>
@@ -291,19 +293,19 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
           {/* Vehicle specs */}
           <div className="space-y-1.5 text-xs">
             <div className="flex justify-between py-1 border-b border-slate-100 text-slate-600">
-              <span>Vehicle Model</span>
+              <span>Vehicle</span>
               <span className="font-semibold text-slate-900">Tata Nexon EV Max</span>
             </div>
             <div className="flex justify-between py-1 border-b border-slate-100 text-slate-600">
-              <span>Port Standard</span>
-              <span className="font-semibold text-slate-900">CCS2 (Combo DC)</span>
+              <span>Charging Port</span>
+              <span className="font-semibold text-slate-900">CCS2 Fast Plug</span>
             </div>
             <div className="flex justify-between py-1 border-b border-slate-100 text-slate-600">
-              <span>GPS Coordinates</span>
-              <span className="font-mono text-slate-900">18.6517° N, 73.7634° E</span>
+              <span>Current Location</span>
+              <span className="text-slate-900 font-medium">Nigdi-Akurdi Highway, Pune</span>
             </div>
             <div className="flex justify-between py-1 border-b border-slate-100 text-slate-600">
-              <span>Nearest Fixed Charger</span>
+              <span>Nearest Fixed Station</span>
               <span className="text-rose-600 font-semibold">14.5 km away (Unreachable)</span>
             </div>
           </div>
@@ -499,24 +501,24 @@ export const MobileEmergencySos: React.FC<MobileEmergencySosProps> = ({
           {/* Mobile Charging Van Hardware Specification Box */}
           <div className="pt-3 border-t border-slate-100">
             <h4 className="text-[11px] font-bold text-slate-700 mb-2">
-              Mobile Charging Van Fleet Architecture & Hardware Specifications
+              Mobile Charging Van Fleet Specifications
             </h4>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-[11px]">
               <div className="p-2 bg-slate-50 rounded border border-slate-200">
-                <span className="text-slate-400 block text-[10px]">Energy Storage</span>
-                <span className="font-semibold text-slate-800">80 kWh LiFePO4 BESS</span>
+                <span className="text-slate-400 block text-[10px]">Onboard Battery</span>
+                <span className="font-semibold text-slate-800">80 kWh Rapid Battery</span>
               </div>
               <div className="p-2 bg-slate-50 rounded border border-slate-200">
-                <span className="text-slate-400 block text-[10px]">Charging Power</span>
-                <span className="font-semibold text-slate-800">40 kW DC / 22 kW AC</span>
+                <span className="text-slate-400 block text-[10px]">Fast Charging Speed</span>
+                <span className="font-semibold text-slate-800">40 kW Rapid DC</span>
               </div>
               <div className="p-2 bg-slate-50 rounded border border-slate-200">
-                <span className="text-slate-400 block text-[10px]">Plug Standards</span>
-                <span className="font-semibold text-slate-800">CCS2, Type 2, GB/T</span>
+                <span className="text-slate-400 block text-[10px]">EV Compatibility</span>
+                <span className="font-semibold text-slate-800">Fits All EV Models</span>
               </div>
               <div className="p-2 bg-slate-50 rounded border border-slate-200">
-                <span className="text-slate-400 block text-[10px]">Telematics</span>
-                <span className="font-semibold text-slate-800">GPS / 4G IoT Telemetry</span>
+                <span className="text-slate-400 block text-[10px]">Dispatch Tracking</span>
+                <span className="font-semibold text-slate-800">Live Real-Time GPS</span>
               </div>
             </div>
           </div>

@@ -313,7 +313,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                     : 'border-transparent text-slate-500 hover:text-slate-800'
                 }`}
               >
-                Live Bay Telemetry & Demand
+                Charger Availability & Wait Times
               </button>
               <button
                 onClick={() => setActiveTabModal('simulate')}
@@ -324,7 +324,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                 }`}
               >
                 <BatteryCharging className="w-3.5 h-3.5" />
-                Simulate Charging Session
+                Simulate Charging Your EV
               </button>
             </div>
 
@@ -335,7 +335,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                   {/* Overview Stats Grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                     <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="text-[11px] text-slate-500 font-medium">Base Tariff</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Electricity Rate</div>
                       <div className="text-base font-bold text-slate-900 font-mono mt-0.5">
                         ₹{selectedStation.pricingPerKwh.toFixed(2)}
                         <span className="text-xs text-slate-500 font-normal">/kWh</span>
@@ -343,15 +343,14 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                     </div>
 
                     <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="text-[11px] text-slate-500 font-medium">Predicted Queue</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Estimated Wait</div>
                       <div className="text-base font-bold text-slate-900 font-mono mt-0.5">
-                        {selectedStation.queueEstimateMinutes}
-                        <span className="text-xs text-slate-500 font-normal"> min</span>
+                        {selectedStation.queueEstimateMinutes === 0 ? 'No wait' : `${selectedStation.queueEstimateMinutes} min`}
                       </div>
                     </div>
 
                     <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="text-[11px] text-slate-500 font-medium">Solar Generation</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Clean Solar Power</div>
                       <div className="text-base font-bold text-amber-700 font-mono mt-0.5">
                         {selectedStation.currentSolarGenerationKw.toFixed(1)}
                         <span className="text-xs text-slate-500 font-normal"> kW</span>
@@ -359,7 +358,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                     </div>
 
                     <div className="p-3 bg-slate-50 rounded-xl border border-slate-200">
-                      <div className="text-[11px] text-slate-500 font-medium">Grid Substation Load</div>
+                      <div className="text-[11px] text-slate-500 font-medium">Local Grid Load</div>
                       <div className="text-base font-bold text-slate-900 font-mono mt-0.5">
                         {selectedStation.gridLoadPercentage}%
                       </div>
@@ -368,7 +367,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
 
                   {/* Individual Connector Bays */}
                   <div>
-                    <h4 className="text-xs font-bold text-slate-900 mb-2">Individual Dispenser Bays</h4>
+                    <h4 className="text-xs font-bold text-slate-900 mb-2">Charging Plugs at this Location</h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                       {selectedStation.connectors.map((c, i) => (
                         <div
@@ -381,10 +380,10 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                             </div>
                             <div>
                               <div className="text-xs font-bold text-slate-800">
-                                {c.type} Fast Port
+                                {c.type} Fast Charger
                               </div>
                               <div className="text-[11px] text-slate-500 font-mono">
-                                Output: {c.powerKw} kW DC
+                                Speed: {c.powerKw} kW Rapid
                               </div>
                             </div>
                           </div>
@@ -393,7 +392,7 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                               c.available > 0 ? 'text-emerald-700' : 'text-amber-700'
                             }`}
                           >
-                            {c.available > 0 ? 'Available' : 'Charging'}
+                            {c.available > 0 ? 'Open & Ready' : 'In Use'}
                           </span>
                         </div>
                       ))}
@@ -404,9 +403,9 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                   <div>
                     <div className="flex items-center justify-between mb-1.5">
                       <h4 className="text-xs font-bold text-slate-900">
-                        24-Hour Predictive Demand Profile (AI Forecast)
+                        Best Times to Charge (24-Hour Wait Forecast)
                       </h4>
-                      <span className="text-[11px] text-slate-400">Historical & Sensor Trained</span>
+                      <span className="text-[11px] text-slate-400">Live Forecast</span>
                     </div>
                     <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
                       <div className="h-20 flex items-end gap-1 pt-2">
@@ -431,8 +430,8 @@ export const StationFinder: React.FC<StationFinderProps> = ({
                         ))}
                       </div>
                       <div className="flex items-center justify-between text-[10px] text-slate-500 pt-2 border-t border-slate-200 mt-2">
-                        <span>Low Demand (Optimal Tariff)</span>
-                        <span>Peak Congestion (Expected Wait &gt;15m)</span>
+                        <span>Green: Fast & Open (Low Demand)</span>
+                        <span>Orange/Red: Busy Hours (Expect Wait)</span>
                       </div>
                     </div>
                   </div>

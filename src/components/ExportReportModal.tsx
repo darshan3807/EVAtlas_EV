@@ -59,7 +59,7 @@ EVAtlas is an AI-powered EV intelligence platform that predicts where charging d
 ${planningZones.map((z) => `- ${z.name}: Deficit Index ${z.deficitIndex}/100, +${z.recommendedAdditionalPorts} ports needed, Solar potential: ${z.solarPotentialKwp} kWp`).join('\n')}
 
 ## Mobile Roadside Battery Assistance
-- 10-Step protocol connecting stranded EVs (<5% SoC) with nearest 80kWh LiFePO4 mobile charging vans.
+- 10-step roadside rescue process connecting stranded EVs (<5% battery) with mobile charging vans.
 - Average emergency response time: 11-14 minutes to restore safe +30 km driving buffer.
 `;
     navigator.clipboard.writeText(text);

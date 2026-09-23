@@ -137,15 +137,15 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
         <div>
           <div className="flex items-center gap-2 text-xs font-semibold text-emerald-700 mb-1">
             <Zap className="w-3.5 h-3.5" />
-            <span>Urban Mobility Authority</span>
+            <span>Smart City Planning</span>
             <span className="text-slate-300">·</span>
-            <span>Predictive Planning Module</span>
+            <span>Clean Energy & Infrastructure</span>
           </div>
           <h2 className="text-base font-bold text-slate-900 leading-snug">
-            AI Demand Forecasting & Solar + Grid Location Optimizer
+            City EV Infrastructure & Solar Hub Planner
           </h2>
           <p className="text-xs text-slate-500 mt-0.5">
-            Predictive infrastructure planning preventing reactive grid stress, queue congestion, and capital misallocation.
+            Simulate where new charging stations are needed, prevent long lines, and power new stations with clean solar energy.
           </p>
         </div>
 
@@ -276,10 +276,10 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
             <div>
               <h3 className="text-sm font-bold text-slate-900 flex items-center gap-1.5">
                 <Sliders className="w-4 h-4 text-emerald-600" />
-                <span>Optimal Station Placement Engine (Solar + Grid Intelligence)</span>
+                <span>Plan & Test a New Clean Charging Station</span>
               </h3>
               <p className="text-[11px] text-slate-500">
-                Simulate adding renewable-backed high-speed charging infrastructure to eliminate local bottlenecks.
+                Adjust charging speed, solar canopy size, and battery backup to see the immediate impact on lines and clean energy.
               </p>
             </div>
           </div>
@@ -289,7 +289,7 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
             {/* Slider 1: Number of Fast Charging Ports */}
             <div className="space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-200">
               <div className="flex justify-between items-center font-medium">
-                <span className="text-slate-700">120 kW CCS2 Dispensers</span>
+                <span className="text-slate-700">Number of Fast Chargers (120 kW)</span>
                 <span className="font-mono font-bold text-slate-900">{plannedChargersCount} Ports</span>
               </div>
               <input
@@ -311,7 +311,7 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
             {/* Slider 2: Solar Canopy Capacity */}
             <div className="space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-200">
               <div className="flex justify-between items-center font-medium">
-                <span className="text-slate-700">Rooftop Solar Canopy (kWp)</span>
+                <span className="text-slate-700">Rooftop Solar Panels</span>
                 <span className="font-mono font-bold text-amber-700">{solarCanopyKwp} kWp</span>
               </div>
               <input
@@ -324,16 +324,16 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
                 className="w-full accent-amber-500 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-400 font-mono">
-                <span>0 kWp</span>
-                <span>75 kWp</span>
-                <span>150 kWp</span>
+                <span>None</span>
+                <span>Medium (75 kWp)</span>
+                <span>Large (150 kWp)</span>
               </div>
             </div>
 
             {/* Slider 3: Battery Energy Storage System (BESS) */}
             <div className="space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-200">
               <div className="flex justify-between items-center font-medium">
-                <span className="text-slate-700">Battery Storage Buffer (BESS)</span>
+                <span className="text-slate-700">Backup Battery Storage</span>
                 <span className="font-mono font-bold text-slate-900">{batteryStorageKwh} kWh</span>
               </div>
               <input
@@ -346,7 +346,7 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
                 className="w-full accent-emerald-600 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-400 font-mono">
-                <span>0 kWh</span>
+                <span>None</span>
                 <span>150 kWh</span>
                 <span>300 kWh</span>
               </div>
@@ -355,7 +355,7 @@ export const CityPlannerDashboard: React.FC<CityPlannerDashboardProps> = ({
             {/* Slider 4: Dynamic Off-Peak Incentive */}
             <div className="space-y-1.5 p-3 bg-slate-50 rounded-lg border border-slate-200">
               <div className="flex justify-between items-center font-medium">
-                <span className="text-slate-700">Off-Peak Tariff Incentive</span>
+                <span className="text-slate-700">Off-Peak Discount for Drivers</span>
                 <span className="font-mono font-bold text-slate-900">-{offPeakTariffDiscount}% Off</span>
               </div>
               <input

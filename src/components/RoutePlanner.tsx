@@ -48,7 +48,7 @@ export const RoutePlanner: React.FC<RoutePlannerProps> = ({
         { km: 0, alt: 560, name: 'Akurdi Start' },
         { km: 28, alt: 590, name: 'Talegaon Toll' },
         { km: 58, alt: 610, name: 'Lonavala Crest' },
-        { km: 82, alt: 90, name: 'Khopoli Descent (Regen +4% SoC)' },
+        { km: 82, alt: 90, name: 'Khopoli Descent (Downhill: +4% Battery Recharged)' },
         { km: 118, alt: 35, name: 'Panvel Interchange' },
         { km: 148, alt: 10, name: 'BKC Destination' },
       ],
@@ -62,7 +62,7 @@ export const RoutePlanner: React.FC<RoutePlannerProps> = ({
         { km: 0, alt: 560, name: 'Hinjawadi' },
         { km: 45, alt: 620, name: 'Shirwal Toll' },
         { km: 80, alt: 680, name: 'Wai Foothills' },
-        { km: 105, alt: 1150, name: 'Pasarni Ghat (Climb -12% SoC)' },
+        { km: 105, alt: 1150, name: 'Pasarni Ghat (Uphill: -12% Battery Used)' },
         { km: 124, alt: 1350, name: 'Mahabaleshwar' },
       ],
       recommendedStopStationId: 'st-05',
@@ -111,10 +111,10 @@ export const RoutePlanner: React.FC<RoutePlannerProps> = ({
           <div>
             <h2 className="text-base font-bold text-slate-900 flex items-center gap-2">
               <Navigation className="w-4 h-4 text-emerald-600" />
-              <span>Range-Aware Route Optimization Engine</span>
+              <span>Plan Your EV Trip With Smart Charging Stops</span>
             </h2>
             <p className="text-xs text-slate-500 mt-0.5">
-              Considers vehicle battery chemistry, ambient temperature, elevation gradients, and queue wait times.
+              Calculates your exact battery range considering hills, air conditioning, weather, and open chargers along the way.
             </p>
           </div>
 

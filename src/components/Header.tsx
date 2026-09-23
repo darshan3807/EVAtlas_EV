@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Live Stations & Map
+            Find Chargers
           </button>
 
           <button
@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Smart Range & Route
+            Plan a Trip
           </button>
 
           <button
@@ -79,7 +79,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Emergency SOS Assist
+            Roadside Rescue
           </button>
 
           <button
@@ -90,7 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            Predictive City Planner
+            City Planner
           </button>
 
           <button
@@ -101,7 +101,7 @@ export const Header: React.FC<HeaderProps> = ({
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
-            System Architecture
+            How It Works
           </button>
         </nav>
 
@@ -143,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({
             title="Export Clean Infrastructure Blueprint"
           >
             <Download className="w-3.5 h-3.5 text-slate-500" />
-            <span className="hidden sm:inline">Export Blueprint</span>
+            <span className="hidden sm:inline">Download Report</span>
           </button>
         </div>
       </div>
@@ -156,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
             activeTab === 'stations' ? 'bg-emerald-50 text-emerald-700' : 'text-slate-600'
           }`}
         >
-          Stations
+          Find Chargers
         </button>
         <button
           onClick={() => setActiveTab('route')}
@@ -164,7 +164,7 @@ export const Header: React.FC<HeaderProps> = ({
             activeTab === 'route' ? 'bg-emerald-50 text-emerald-700' : 'text-slate-600'
           }`}
         >
-          Range & Route
+          Plan Trip
         </button>
         <button
           onClick={() => setActiveTab('emergency')}
@@ -172,7 +172,7 @@ export const Header: React.FC<HeaderProps> = ({
             activeTab === 'emergency' ? 'bg-rose-50 text-rose-700 font-semibold' : 'text-slate-600'
           }`}
         >
-          SOS Van
+          Rescue
         </button>
         <button
           onClick={() => setActiveTab('planner')}
@@ -186,7 +186,7 @@ export const Header: React.FC<HeaderProps> = ({
           onClick={onOpenArchitecture}
           className="px-2.5 py-1 font-medium whitespace-nowrap rounded text-slate-600 hover:bg-slate-100"
         >
-          Tech Spec
+          How It Works
         </button>
       </div>
     </header>
